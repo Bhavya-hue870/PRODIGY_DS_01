@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Distribution of Genders in a Population</h1>
+    <canvas id="genderChart"></canvas>
+    <script>
+        var ctx = document.getElementById('genderChart').getContext('2d');
+        var genderChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Male', 'Female', 'Non-binary'],
+                datasets: [{
+                    label: 'Number of Individuals',
+                    data: [120, 150, 30],
+                    backgroundColor: ['blue', 'pink', 'green'],
+                    borderColor: ['black', 'black', 'black'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

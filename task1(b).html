@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histogram Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Distribution of Ages in a Population</h1>
+    <canvas id="ageChart"></canvas>
+    <script>
+        var ctx = document.getElementById('ageChart').getContext('2d');
+        var ageChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['<25', '25-30', '30-35', '35-40', '40-45', '45-50', '>50'],
+                datasets: [{
+                    label: 'Number of Individuals',
+                    data: [3, 5, 7, 5, 3, 1, 1], // Counts in each bin
+                    backgroundColor: 'skyblue',
+                    borderColor: 'black',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Age Range'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Frequency'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
